@@ -5,7 +5,6 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^11.4.2"
-    "discord-anti-spam.js"
   },
   "devDependencies": {},
   "scripts": {
