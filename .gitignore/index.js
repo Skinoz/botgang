@@ -90,3 +90,21 @@ bot.on('message', message => {
         console.log('Aléatoire 5');
     }
 }})
+
+// ANTI SPAM BOT
+anti_spam(bot, {
+    warnBuffer: 3, // Nombre maximum de messages autorisés à être envoyés dans l'intervalle avant d'être averti.
+    maxBuffer: 5,  // Nombre maximum de messages autorisés à être envoyés dans l'intervalle avant d'être BAN.
+    interval: 1000, // La quantité de temps en ms que les utilisateurs peuvent envoyer au maximum de la variable maxBuffer avant d'être banni.
+    banMessage: "Bon bas ... Ta gagné ton BAN", // Interdire le message, marque toujours l'utilisateur banni devant lui.
+    warningMessage: "Attention tu risque de prendre un BAN",  // Message d'avertissement envoyé à l'utilisateur pour indiquer qu'il va jeûner.  
+    maxDuplicatesWarning: 7, // Nombre maximal de messages en double qu'un utilisateur peut envoyer dans un intervalle de temps avant d'être averti
+    maxDuplicatesBan: 10, // Nombre maximal de messages en double qu'un utilisateur peut envoyer dans un intervalle de temps avant d'être averti  
+    deleteMessagesAfterBanForPastDays: 7 // Supprime les messages spammés après l'interdiction des x derniers jours.});
+});
+
+// https://discord.gg/Srk7gDg
+bot.on("guildMemberAdd", member => {
+    member.guild.channels.find("name", "🏁bienvenue🏁").send(`Salut ${member}, Bienvenue dans le GANG`, {
+        file: "http://image.noelshack.com/fichiers/2018/39/5/1538157987-gang.png"})      
+})
