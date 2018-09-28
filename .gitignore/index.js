@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 
+var anti_spam = require("discord-anti-spam");
 var bot = new Discord.Client();
 var prefix = ("!");
 
@@ -10,7 +11,7 @@ bot.on('ready', () =>{
     console.log("bot Pret");
 });
 
-bot.login(process.env.TOKEN)
+bot.login('process.env.TOKEN')
 
 
 bot.on('message', message => {
@@ -48,6 +49,7 @@ bot.on('message', message => {
             return message.reply("Tu n'as pas la permission.")                                                
 }}})
 
+// Message 
 bot.on('message', message => {
     if (message.content === "bonjour"){
         message.reply("Wsh ça va ?");
@@ -93,13 +95,13 @@ bot.on('message', message => {
 
 // ANTI SPAM BOT
 anti_spam(bot, {
-    warnBuffer: 3,
+    warnBuffer: 3, 
     maxBuffer: 5,  
     interval: 1000, 
     banMessage: "Bon bas ... Ta gagné ton BAN", 
     warningMessage: "Attention tu risque de prendre un BAN",  
     maxDuplicatesWarning: 7, 
-    maxDuplicatesBan: 10,   
+    maxDuplicatesBan: 10, 
     deleteMessagesAfterBanForPastDays: 7 
 });
 
