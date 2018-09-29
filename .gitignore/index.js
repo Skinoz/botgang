@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-var  anti_spam  = require ( " discord-anti-spam " ) ; 
+var  anti_spam  = require ( "discord-anti-spam" ) ; 
 var bot = new Discord.Client();
 var prefix = ("!");
 
