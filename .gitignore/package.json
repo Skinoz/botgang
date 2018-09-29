@@ -1,16 +1,16 @@
 {
   "name": "bot-discord",
   "version": "1.0.0",
-  "description": "Bot",
+  "description": "",
   "main": "index.js",
   "dependencies": {
+    "discord-anti-spam": "^1.1.2",
     "discord.js": "^11.4.2"
-    "discord-anti-spam": "^1.1.2"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Skinoz",
+  "author": "",
   "license": "ISC"
 }
