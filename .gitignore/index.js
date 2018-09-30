@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 
-var  anti_spam  = require('./AntiSpam.js') ; 
 var bot = new Discord.Client();
 var prefix = ("!");
 
@@ -11,7 +10,7 @@ bot.on('ready', () =>{
     console.log("bot Pret");
 });
 
-bot.login('process.env.TOKEN')
+bot.login('NDkxMzA1NTQ0MjM0MzAzNDk4.DoVujA.RKRuydj-8PZk5jhfo5zjlsyItSE')
 
 
 bot.on('message', message => {
@@ -93,17 +92,6 @@ bot.on('message', message => {
     }
 }})
 
-// ANTI SPAM BOT
-anti_spam(bot, {
-    warnBuffer: 3, 
-    maxBuffer: 5,  
-    interval: 1000, 
-    banMessage: "Bon bas ... Ta gagné ton BAN", 
-    warningMessage: "Attention tu risque de prendre un BAN",  
-    maxDuplicatesWarning: 7, 
-    maxDuplicatesBan: 10, 
-    deleteMessagesAfterBanForPastDays: 7 
-});
 
 // https://discord.gg/Srk7gDg
 bot.on("guildMemberAdd", member => {
