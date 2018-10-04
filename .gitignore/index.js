@@ -10,7 +10,7 @@ bot.on('ready', () =>{
     console.log("bot Pret");
 });
 
-bot.login('NDkxMzA1NTQ0MjM0MzAzNDk4.DoVujA.RKRuydj-8PZk5jhfo5zjlsyItSE')
+bot.login('process.env.TOKEN')
 
 
 bot.on('message', message => {
