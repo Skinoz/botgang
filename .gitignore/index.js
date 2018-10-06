@@ -37,8 +37,8 @@ bot.on('message', message => {
             .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
             .setTimestamp()
             .setColor("0x00FF00")
-            console.log("Message Infos")
-        message.guild.channels.find("name", "🚩sondage-du-jour🚩").sendEmbed(embed)
+            console.log("Message Sondage")
+        message.guild.channels.find("name", "📣les-sondages📣").sendEmbed(embed)
         .then(function (message) {
             message.react ("✅")
             message.react ("❌")
@@ -95,6 +95,14 @@ bot.on('message', message => {
 
 // https://discord.gg/Srk7gDg
 bot.on("guildMemberAdd", member => {
-    member.guild.channels.find("name", "🏁bienvenue🏁").send(`Salut ${member}, Bienvenue dans le GANG`, {
-        file: "http://image.noelshack.com/fichiers/2018/39/5/1538157987-gang.png"})      
-})
+    let channel = member.guild.channels.find('name','🏁bienvenue🏁');
+    let memberavatar = member.user.avatarURL
+        if (!channel) return;
+        let embed = new Discord.RichEmbed()
+        .setColor ('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField(':bust_in_silhouette: /',`Pseudo: ${member}`)
+        .addField(':microphone2: /',`Bienvenue dans le GANG ${member}`)
+        .addField(':triangular_flag_on_post: /',`Merci de lire le règlement pour accéder au Discord`)
+        channel.sendEmbed(embed);        
+});
