@@ -10,7 +10,7 @@ bot.on('ready', () =>{
     console.log("bot Pret");
 });
 
-bot.login('process.env.TOKEN')
+bot.login(process.env.TOKEN);
 
 
 bot.on('message', message => {
