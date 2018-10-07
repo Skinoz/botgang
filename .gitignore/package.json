@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "discord-anti-spam": "^1.1.2",
     "discord.js": "^11.4.2"
   },
   "devDependencies": {},
