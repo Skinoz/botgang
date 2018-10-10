@@ -16,36 +16,39 @@ bot.login(process.env.TOKEN);
 bot.on('message', message => {
     // INFOS
     if(message.content === prefix + "infos") {
+        message.delete (1000);
         var embed = new Discord.RichEmbed()
         .setDescription("INFOS DU DISCORD")
         .addField("Nom du Discord", message.guild.name)
         .addField("Crée le", message.guild.createdAt)
         .addField("Tu as rejoin le", message.member.joinedAt)
         .addField("Utilisateurs sur le discord", message.guild.memberCount)
+        .addField("Envoyée par" ,message.author)
         .setColor("0x00FF00")
-    message.channel.sendEmbed(embed)
+    message.channel.send(embed)
     console.log("Message Infos")    
     }
 
     // SONDAGE 
     if (message.content.startsWith(prefix + "sondage")) {
-        if(message.member.roles.find("name", "Protecteur du Quartier")){
+        if(message.member.roles.find("name", "📢Sondage📢")){
+            message.delete (1000);
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             var embed = new Discord.RichEmbed()
-            .setDescription("SONDAGE")
-            .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
-            .setTimestamp()
-            .setColor("0x00FF00")
-            console.log("Message Sondage")
-        message.guild.channels.find("name", "📣les-sondages📣").sendEmbed(embed)
-        .then(function (message) {
-            message.react ("✅")
-            message.react ("❌")
+                .setDescription("SONDAGE")
+                .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
+                .setTimestamp()
+                .setColor("0x00FF00")
+                console.log("Message Sondage")
+            message.channel.send(embed)
+            .then(function (message) {
+                message.react ("✅")
+                message.react ("❌")
         }).catch(function() {
         });
         }else{
-            return message.reply("Tu n'as pas la permission.")                                                
+            return message.reply("Tu n'as pas les permissions / Crée le role 📢Sondage📢 pour accéder a ce role")                                                
 }}})
 
 // Message 
