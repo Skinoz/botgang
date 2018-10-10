@@ -6,7 +6,7 @@ var prefix = ("!");
 
 
 bot.on('ready', () =>{
-    bot.user.setPresence({ game: {name: 'Prépares les kalash', type: 0}});
+    bot.user.setPresence({ game: {name: 'GANG / Glove Team', type: 0}});
     console.log("bot Pret");
 });
 
