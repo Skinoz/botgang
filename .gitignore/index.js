@@ -34,10 +34,10 @@ bot.on('message', message => {
         if(message.member.roles.find("name", "📢Sondage📢")){
             message.delete (1000);
             let args = message.content.split(" ").slice(1);
-            let thingToEcho = args.join(" ")
+            let lemessage = args.join(" ")
             var embed = new Discord.RichEmbed()
                 .setDescription("SONDAGE")
-                .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
+                .addField(lemessage, "Répondre avec :white_check_mark: ou :x:")
                 .setTimestamp()
                 .setColor("0x00FF00")
                 console.log("Message Sondage")
@@ -48,20 +48,36 @@ bot.on('message', message => {
         }).catch(function() {
         });
         }else{
-            return message.reply("Tu n'as pas les permissions / Crée le role 📢Sondage📢 pour accéder a ce role")                                                
+            return message.reply("Tu n'as pas les permissions / Crée le role 📢Sondage📢 pour accéder a ce role") 
+
+                    
 }}})
 
 // Message 
 bot.on('message', message => {
     if (message.content === "bonjour"){
+        message.delete (1000);
         message.reply("Wsh ça va ?");
         console.log('Message bonjours');
     }
 
     if (message.content === "ça va"){
+        message.delete (1000);
         message.reply("Niquel 👍 tout le GANG te souhaite une bonne journée");
         console.log('Message çava');
-}});
+    }
+    
+    if (message.content === "MESSAGE"){
+            var channel = bot.channels.find('name','NOM DU CHANNEL');
+            let role = message.guild.roles.find('name', 'NOM DU ROLE') 
+            message.delete (1000);       
+            channel.send("RÉPONSE");
+            message.member.addRole(role)
+    }
+
+    
+})
+
 
 // Aléatoire
 function random(min, max){
@@ -72,6 +88,7 @@ function random(min, max){
 
 bot.on('message', message => {
     if (message.content === "ça va et toi"){
+        message.delete (1000);
     random()
     if (randnum ==1){
         message.reply("Merci je vais bien :grinning:");
@@ -107,33 +124,11 @@ bot.on("guildMemberAdd", member => {
         .addField(':bust_in_silhouette: /',`Pseudo: ${member}`)
         .addField(':microphone2: /',`Bienvenue dans le GANG ${member}`)
         .addField(':triangular_flag_on_post: /',`Merci de lire le règlement pour accéder au Discord`)
-        channel.sendEmbed(embed);        
+        channel.sendEmbed(embed);    
 });
 
 bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Trade")) {
-        if(message.member.roles.find("name", "💰Trader💰")){
-            message.delete (1000);
-            let args = message.content.split(" ").slice(1);
-            let lemessage = args.join(" ")
-            var embed = new Discord.RichEmbed()
-                .setDescription("Nouveau Trade")
-                .addField(lemessage, "Pour les intéresser merci d'envoyer un message privé à l'auteur de ce message")
-                .setTimestamp()
-                .setColor("0x00FF00")
-                console.log("Message Trade")
-            message.channel.send(embed)
-            .then(function (message) {
-                message.react ("✅")
-                message.react ("❌")
-        }).catch(function() {
-        });
-        }else{
-            return message.reply("Tu n'as pas les permissions / Propriétaire du discord crée le role 💰Trader💰 pour accéder a ce rôle") 
-        }}});
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Trade")) {
+    if (message.content.startsWith( '/' + "Trade")) {
         if(message.member.roles.find("name", "💰Trader💰")){
             message.delete (1000);
             let args = message.content.split(" ").slice(1);
@@ -151,4 +146,4 @@ bot.on('message', message => {
             });
             }else{
             return message.reply("Tu n'as pas les permissions / Propriétaire du discord crée le role 💰Trader💰 pour accéder a ce rôle")
-        }}});
+        }}})
