@@ -109,3 +109,25 @@ bot.on("guildMemberAdd", member => {
         .addField(':triangular_flag_on_post: /',`Merci de lire le règlement pour accéder au Discord`)
         channel.sendEmbed(embed);        
 });
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Trade")) {
+        if(message.member.roles.find("name", "💰Trader💰")){
+            message.delete (1000);
+            let args = message.content.split(" ").slice(1);
+            let lemessage = args.join(" ")
+            var embed = new Discord.RichEmbed()
+                .setDescription("Nouveau Trade")
+                .addField(lemessage, "Pour les intéresser merci d'envoyer un message privé à l'auteur de ce message")
+                .setTimestamp()
+                .setColor("0x00FF00")
+                console.log("Message Trade")
+            message.channel.send(embed)
+            .then(function (message) {
+                message.react ("✅")
+                message.react ("❌")
+        }).catch(function() {
+        });
+        }else{
+            return message.reply("Tu n'as pas les permissions / Propriétaire du discord crée le role 💰Trader💰 pour accéder a ce rôle") 
+        }}});
