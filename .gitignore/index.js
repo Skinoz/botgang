@@ -128,26 +128,26 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on('message', message => {
-    if (message.content.startsWith( '/' + "Trade")) {
-        if(message.member.roles.find("name", "💰Trader💰")){
-            message.delete (1000);
-            let args = message.content.split(" ").slice(1);
-            let lemessage = args.join(" ")
-            var embed = new Discord.RichEmbed()
-                .setDescription("Nouveau Trade")
-                .addField(lemessage, " ✅: Intéressé / ❌: Pas Intéressé")
-                .addField("Envoyée par" ,message.author)
-                .setColor("0x00FF00")
-                console.log("Message Trade")
-            message.guild.channels.find("name", "💰marché💰").sendEmbed(embed)
-            .then(function (message) {
-                message.react ("✅")
-                message.react ("❌")
-        }).catch(function() {
-        });
-        }else{
-            message.delete (1000);
-            return message.author.send("Tu n'as pas accès.");
+    if (message.content.includes('/trade') || message.content.includes('/Trade')) {
+            if(message.member.roles.find("name", "💰Trader💰")){
+                message.delete (1000);
+                let args = message.content.split(" ").slice(1);
+                let lemessage = args.join(" ")
+                var embed = new Discord.RichEmbed()
+                    .setDescription("Nouveau Trade")
+                    .addField(lemessage, " ✅: Intéressé / ❌: Pas Intéressé")
+                    .addField("Envoyée par" ,message.author)
+                    .setColor("0x00FF00")
+                    console.log("Message Trade")
+                message.guild.channels.find("name", "💰marché💰").sendEmbed(embed)
+                .then(function (message) {
+                    message.react ("✅")
+                    message.react ("❌")
+            }).catch(function() {
+            });
+            }else{
+                message.delete (1000);
+                return message.author.send("Tu n'as pas accès.");
 
 }}});
 
