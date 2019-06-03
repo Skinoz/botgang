@@ -128,7 +128,8 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on('message', message => {
-    if (message.content.includes('/trade') || message.content.includes('/Trade')) {
+    if (message.channel.id === '585114411807801346') {
+        if (message.content.includes('/trade') || message.content.includes('/Trade')) {
             if(message.member.roles.find("name", "💰Trader💰")){
                 message.delete (1000);
                 let args = message.content.split(" ").slice(1);
@@ -149,7 +150,7 @@ bot.on('message', message => {
                 message.delete (1000);
                 return message.author.send("Tu n'as pas accès.");
 
-}}});
+}}}});
 
 bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✅")
@@ -158,3 +159,12 @@ bot.on('messageReactionAdd', (reaction, user) => {
     }).catch(console.error);
 
 });
+
+//blacklist message
+
+bot.on('message', message => {
+    if (message.channel.id === '585201492735033370') {
+        if (message.content.includes('https://discord.gg') || message.content.includes('/Trade') || message.content.includes('/trade')) {
+            message.delete (1);
+
+}}});
