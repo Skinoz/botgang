@@ -135,15 +135,25 @@ bot.on('message', message => {
             let lemessage = args.join(" ")
             var embed = new Discord.RichEmbed()
                 .setDescription("Nouveau Trade")
-                .addField(lemessage, "Pour les intéresser merci d'envoyer un message privé à l'auteur de ce message")
+                .addField(lemessage, " ✅: Intéressé / ❌: Pas Intéressé")
+                .addField("Envoyée par" ,message.author)
                 .setColor("0x00FF00")
                 console.log("Message Trade")
-            message.channel.send(embed)
+            message.guild.channels.find("name", "💰marché💰").sendEmbed(embed)
             .then(function (message) {
                 message.react ("✅")
                 message.react ("❌")
-            }).catch(function() {
-            });
-            }else{
-            return message.reply("Tu n'as pas les permissions / Propriétaire du discord crée le role 💰Trader💰 pour accéder a ce rôle")
-        }}})
+        }).catch(function() {
+        });
+        }else{
+            return message.author.send("Tu n'as pas accès.");
+
+}}});
+
+bot.on('messageReactionAdd', (reaction, user) => {
+    if(reaction.emoji.name === "✅")
+        user.createDM().then(channel => {
+        return channel.send("Envoye un DM à l'auteur du message pour plus d'information");
+    }).catch(console.error);
+
+});
