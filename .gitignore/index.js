@@ -146,6 +146,7 @@ bot.on('message', message => {
         }).catch(function() {
         });
         }else{
+            message.delete (1000);
             return message.author.send("Tu n'as pas accès.");
 
 }}});
