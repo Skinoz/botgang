@@ -2,16 +2,14 @@ const Discord = require("discord.js");
 
 var bot = new Discord.Client();
 var prefix = ("!");
-
-
+const talkedRecently = new Set();
 
 bot.on('ready', () =>{
-    bot.user.setPresence({ game: {name: 'GANG', type: 0}});
+    bot.user.setPresence({ game: {name: 'GANG / RKD VSC', type: 0}});
     console.log("bot Pret");
 });
 
-bot.login(process.env.TOKEN);
-
+bot.login('NDkxMzA1NTQ0MjM0MzAzNDk4.DpkeOg.Da6HYacr5qu6Dd7De9mLPFCssKk')
 
 bot.on('message', message => {
     // INFOS
@@ -28,7 +26,7 @@ bot.on('message', message => {
     message.channel.send(embed)
     console.log("Message Infos")    
     }
-
+    
     // SONDAGE 
     if (message.content.startsWith(prefix + "sondage")) {
         if(message.member.roles.find("name", "📢Sondage📢")){
@@ -128,7 +126,7 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on('message', message => {
-    if (message.channel.id === '585114411807801346') {
+    if (message.channel.id === '530790697788243988') {
         if (message.content.includes('/trade') || message.content.includes('/Trade')) {
             if(message.member.roles.find("name", "💰Trader💰")){
                 message.delete (1000);
@@ -153,7 +151,7 @@ bot.on('message', message => {
 }}}});
 
 bot.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === "✅")
+    if(reaction.emoji.name === "")
         user.createDM().then(channel => {
         return channel.send("Envoye un DM à l'auteur du message pour plus d'information");
     }).catch(console.error);
@@ -168,3 +166,9 @@ bot.on('message', message => {
             message.delete (1);
 
 }}});
+
+bot.on('message', message => {
+    if (message.content === "Sledge"){
+        message.delete (1000);
+        message.reply("Sah Sledge c'est un Zgeg");
+}})
