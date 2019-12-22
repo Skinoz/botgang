@@ -5,7 +5,7 @@ var prefix = ("!");
 const talkedRecently = new Set();
 
 bot.on('ready', () =>{
-    bot.user.setPresence({ game: {name: 'GANG / RKD VSC', type: 0}});
+    bot.user.setPresence({ game: {name: 'GANG / RKD', type: 0}});
     console.log("bot Pret");
 });
 
