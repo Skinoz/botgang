@@ -9,7 +9,7 @@ bot.on('ready', () =>{
     console.log("bot Pret");
 });
 
-bot.login('NDkxMzA1NTQ0MjM0MzAzNDk4.DpkeOg.Da6HYacr5qu6Dd7De9mLPFCssKk')
+bot.login('NDkxMzA1NTQ0MjM0MzAzNDk4.XgFaZQ.1hnv63-a4UGkJ44LSKCON7olAi8')
 
 bot.on('message', message => {
     // INFOS
