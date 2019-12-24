@@ -150,13 +150,15 @@ bot.on('message', message => {
 
 }}}});
 
+/*
 bot.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === "")
+    if(reaction.emoji.name === "✅")
         user.createDM().then(channel => {
         return channel.send("Envoye un DM à l'auteur du message pour plus d'information");
     }).catch(console.error);
 
 });
+*/
 
 //blacklist message
 
@@ -168,7 +170,41 @@ bot.on('message', message => {
 }}});
 
 bot.on('message', message => {
-    if (message.content === "Sledge"){
-        message.delete (1000);
-        message.reply("Sah Sledge c'est un Zgeg");
+    if (message.content.startsWith(prefix + "Tatchanka")||message.content.startsWith(prefix + "tatchanka")) {
+        message.reply("Notre partenaire Tatchanka est une Recrue");
+}})
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Twitch")||message.content.startsWith(prefix + "twitch")) {
+        message.reply("Notre partenaire Twitch est un Député 1");
+}})
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Jager")||message.content.startsWith(prefix + "jager")) {
+        message.reply("Notre partenaire Jager est un Député 2");
+}})
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Lésion")||message.content.startsWith(prefix + "lésion")) {
+        message.reply("Notre partenaire Lésion est un Député 1");
+}})
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Jackal")||message.content.startsWith(prefix + "morgan")||message.content.startsWith(prefix + "legros")) {
+        message.reply("Long Histoire tu veux savoir ? ... Non enfaite j'ai la flemme de t'expliquer");
+}})
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Buck")||message.content.startsWith(prefix + "Sledge")||message.content.startsWith(prefix + "MKZ")) {
+        message.reply("Saaaaaaaaaaah c un BG");
+}})
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Echo")||message.content.startsWith(prefix + "echo")) {
+        message.reply("Créateur de RKD");
+}})
+
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "Ash")||message.content.startsWith(prefix + "ash")) {
+        message.reply("Ash va vous Asher dans un Ashoir");
 }})
