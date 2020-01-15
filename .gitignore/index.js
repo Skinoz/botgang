@@ -126,26 +126,27 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on('message', message => {
-    if (message.channel.id === '530790697788243988') {
-        if (message.content.includes('/trade') || message.content.includes('/Trade')) {
-            if(message.member.roles.find("name", "💰Trader💰")){
+        if (message.channel.id === '667000717021544449') {
+            if (message.content.includes('/trade') || message.content.includes('/Trade')) {
+             if(message.member.roles.find("name", "💰Client")){
                 message.delete (1000);
+                var result = Math.floor((Math.random() * 15000) + 1)
                 let args = message.content.split(" ").slice(1);
                 let lemessage = args.join(" ")
                 var embed = new Discord.RichEmbed()
-                    .setDescription("Nouveau Trade")
+                    .setDescription( "Message du DarkWeb numéros " + result)
                     .addField(lemessage, " ✅: Intéressé / ❌: Pas Intéressé")
                     .addField("Envoyée par" ,message.author)
                     .setColor("0x00FF00")
                     console.log("Message Trade")
-                message.guild.channels.find("name", "💰marché💰").sendEmbed(embed)
+                message.guild.channels.find("name", "📑commande-arme").sendEmbed(embed)
                 .then(function (message) {
                     message.react ("✅")
                     message.react ("❌")
-            }).catch(function() {
-            });
-            }else{
-                message.delete (1000);
+                }).catch(function() {
+                });
+                }else{
+                    message.delete (1000);
                 return message.author.send("Tu n'as pas accès.");
 
 }}}});
@@ -169,42 +170,3 @@ bot.on('message', message => {
 
 }}});
 
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Tatchanka")||message.content.startsWith(prefix + "tatchanka")) {
-        message.reply("Notre partenaire Tatchanka est une Recrue");
-}})
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Twitch")||message.content.startsWith(prefix + "twitch")) {
-        message.reply("Notre partenaire Twitch est un Député 1");
-}})
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Jager")||message.content.startsWith(prefix + "jager")) {
-        message.reply("Notre partenaire Jager est un Député 2");
-}})
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Lésion")||message.content.startsWith(prefix + "lésion")) {
-        message.reply("Notre partenaire Lésion est un Député 1");
-}})
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Jackal")||message.content.startsWith(prefix + "morgan")||message.content.startsWith(prefix + "legros")) {
-        message.reply("Long Histoire tu veux savoir ? ... Non enfaite j'ai la flemme de t'expliquer");
-}})
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Buck")||message.content.startsWith(prefix + "Sledge")||message.content.startsWith(prefix + "MKZ")) {
-        message.reply("Saaaaaaaaaaah c un BG");
-}})
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Echo")||message.content.startsWith(prefix + "echo")) {
-        message.reply("Créateur de RKD");
-}})
-
-bot.on('message', message => {
-    if (message.content.startsWith(prefix + "Ash")||message.content.startsWith(prefix + "ash")) {
-        message.reply("Ash va vous Asher dans un Ashoir");
-}})
